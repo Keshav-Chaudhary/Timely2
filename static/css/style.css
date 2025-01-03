@@ -159,7 +159,7 @@ html {
     white-space: nowrap;
     border-right: 8px solid #ffffff;
     width: 0;
-    animation: typing 5s steps(30) 1s forwards, blink 0.75s step-end infinite;
+    animation: typing 3s steps(30) 1s forwards, blink 0.75s step-end infinite;
 }
 /* Typing Animation */
 @keyframes typing {
