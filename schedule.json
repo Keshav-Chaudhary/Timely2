@@ -1,0 +1,32 @@
+{
+    "Monday": [
+        {"time": "8:30 AM - 9:30 AM", "subject": "PNS Tuts", "venue": "TBA", "professor": "Sanjit Kaul", "prof_hours": "TBA", "ta_name": "TBA", "ta_hours": "TBA", "grading_component": "TBA"},
+        {"time": "12:30 PM - 1:00 PM", "subject": "Lunch", "venue": "N/A"},
+        {"time": "3:00 PM - 4:30 PM", "subject": "MB Lecture", "venue": "TBA", "professor": "Kiriti Kanjilal", "prof_hours": "TBA", "ta_name": "TBA", "ta_hours": "TBA", "grading_component": "TBA"}
+    ],
+    "Tuesday": [
+        {"time": "8:30 AM - 9:30 AM", "subject": "DSA Tut", "venue": "TBA", "professor": "Gautam Shroff", "prof_hours": "TBA", "ta_name": "TBA", "ta_hours": "TBA", "grading_component": "TBA"},
+        {"time": "9:30 AM - 11:00 AM", "subject": "CO Lecture", "venue": "TBA", "professor": "Sujay Deb", "prof_hours": "TBA", "ta_name": "TBA", "ta_hours": "TBA", "grading_component": "TBA"},
+        {"time": "11:00 AM - 12:30 PM", "subject": "BE Lecture", "venue": "TBA", "professor": "Chanekar Prasad Vilas", "prof_hours": "TBA", "ta_name": "TBA", "ta_hours": "TBA", "grading_component": "TBA"},
+        {"time": "1:00 PM - 3:00 PM", "subject": "BE Labs", "venue": "TBA", "professor": "Chanekar Prasad Vilas", "prof_hours": "TBA", "ta_name": "TBA", "ta_hours": "TBA", "grading_component": "TBA"},
+        {"time": "3:00 PM - 4:00 PM", "subject": "PNS Lecture", "venue": "TBA", "professor": "Sanjit Kaul", "prof_hours": "TBA", "ta_name": "TBA", "ta_hours": "TBA", "grading_component": "TBA"}
+    ],
+    "Wednesday": [
+        {"time": "8:30 AM - 9:30 AM", "subject": "CO Tut", "venue": "TBA", "professor": "Sujay Deb", "prof_hours": "TBA", "ta_name": "TBA", "ta_hours": "TBA", "grading_component": "TBA"},
+        {"time": "9:30 AM - 11:00 AM", "subject": "DSA Lecture", "venue": "TBA", "professor": "Gautam Shroff", "prof_hours": "TBA", "ta_name": "TBA", "ta_hours": "TBA", "grading_component": "TBA"},
+        {"time": "12:30 PM - 1:00 PM", "subject": "Lunch", "venue": "N/A"},
+        {"time": "3:00 PM - 4:30 PM", "subject": "MB Lecture", "venue": "TBA", "professor": "Kiriti Kanjilal", "prof_hours": "TBA", "ta_name": "TBA", "ta_hours": "TBA", "grading_component": "TBA"}
+    ],
+    "Thursday": [
+        {"time": "9:30 AM - 11:00 AM", "subject": "CO Lecture", "venue": "TBA", "professor": "Sujay Deb", "prof_hours": "TBA", "ta_name": "TBA", "ta_hours": "TBA", "grading_component": "TBA"},
+        {"time": "11:00 AM - 12:30 PM", "subject": "BE Lecture", "venue": "TBA", "professor": "Chanekar Prasad Vilas", "prof_hours": "TBA", "ta_name": "TBA", "ta_hours": "TBA", "grading_component": "TBA"},
+        {"time": "1:00 PM - 3:00 PM", "subject": "BE Labs", "venue": "TBA", "professor": "Chanekar Prasad Vilas", "prof_hours": "TBA", "ta_name": "TBA", "ta_hours": "TBA", "grading_component": "TBA"},
+        {"time": "3:00 PM - 4:00 PM", "subject": "PNS Lecture", "venue": "TBA", "professor": "Sanjit Kaul", "prof_hours": "TBA", "ta_name": "TBA", "ta_hours": "TBA", "grading_component": "TBA"}
+    ],
+    "Friday": [
+        {"time": "8:30 AM - 9:30 AM", "subject": "BE Tut", "venue": "TBA", "professor": "Chanekar Prasad Vilas", "prof_hours": "TBA", "ta_name": "TBA", "ta_hours": "TBA", "grading_component": "TBA"},
+        {"time": "9:30 AM - 11:00 AM", "subject": "DSA Lecture", "venue": "TBA", "professor": "Gautam Shroff", "prof_hours": "TBA", "ta_name": "TBA", "ta_hours": "TBA", "grading_component": "TBA"},
+        {"time": "11:00 AM - 12:30 PM", "subject": "PNS Lecture", "venue": "TBA", "professor": "Sanjit Kaul", "prof_hours": "TBA", "ta_name": "TBA", "ta_hours": "TBA", "grading_component": "TBA"},
+        {"time": "2:00 PM - 4:00 PM", "subject": "DSA Lab", "venue": "TBA", "professor": "Gautam Shroff", "prof_hours": "TBA", "ta_name": "TBA", "ta_hours": "TBA", "grading_component": "TBA"}
+    ]
+}

@@ -1,0 +1,172 @@
+body {
+    padding-bottom: 80px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #2d3748;
+    color: white;
+    padding: 16px;
+    text-align: center;
+    box-shadow: 0px -2px 6px rgba(0, 0, 0, 0.1);
+}
+
+footer a {
+    color: #68D391;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #4299E1;
+}
+
+.day-tag {
+    background: linear-gradient(to right, #34D399, #3B82F6); 
+    color: white;
+    padding: 8px 25px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1.5rem;;
+    opacity: 0; 
+    transform: translateY(-20px);
+    animation: dissolveIn 1.5s forwards ease-out; 
+}
+
+/* Dissolve-in animation */
+@keyframes dissolveIn {
+    0% {
+        opacity: 0;
+        transform: translateX(+20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); 
+    }
+}
+
+
+.header-container {
+    background-color: #2d3748;
+    padding: 10px;
+    border-radius: 45px;
+    display: inline-block;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 20;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.modal.show {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+}
+
+.modal-close {
+    background-color: #2d3748;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+/* Button */
+.button {
+    background-color: #4299E1;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+    background-color: #68D391;
+    transform: scale(1.05);
+}
+
+/* Responsive Grid */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.grid-item {
+    background-color: #edf2f7;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+/* Flame Animation */
+@keyframes flame {
+    0% {
+        box-shadow: 0 0 5px 2px rgba(0, 255, 0, 0.6), 0 0 10px 4px rgba(0, 255, 0, 0.4);
+    }
+    25% {
+        box-shadow: 0 0 8px 4px rgba(0, 255, 0, 0.7), 0 0 15px 6px rgba(0, 255, 0, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 12px 6px rgba(0, 255, 0, 0.8), 0 0 20px 8px rgba(0, 255, 0, 0.6);
+    }
+    75% {
+        box-shadow: 0 0 10px 5px rgba(0, 255, 0, 0.7), 0 0 18px 7px rgba(0, 255, 0, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 8px 4px rgba(0, 255, 0, 0.6), 0 0 15px 6px rgba(0, 255, 0, 0.4);
+    }
+}
+
+.animate-flame {
+    animation: flame 1.5s infinite alternate;
+}
+.typing-effect {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 8px solid #ffffff;
+    width: 0;
+    animation: typing 5s steps(30) 1s forwards, blink 0.75s step-end infinite;
+}
+/* Typing Animation */
+@keyframes typing {
+    0% { width: 0; }
+    100% { width: 75%; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}

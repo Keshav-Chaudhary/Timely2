@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}" sizes="16x16" type="image/png">
+    <link rel="icon" href="{{ url_for('static', filename='images/logo-32x32.png') }}" sizes="32x32" type="image/png">
+    <link rel="icon" href="{{ url_for('static', filename='images/logo-48x48.png') }}" sizes="48x48" type="image/png"></head>
+</head>
+<body class="bg-gray-900 text-gray-100">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-green-400 to-blue-500 text-white p-6 text-center shadow-lg">
+        <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">Class TimeTable</h1>
+        <p class="mt-2 text-lg sm:text-xl">Stay organized and on track with your daily Classes</p>
+    </header>
+
+    <!-- Navigation Bar --> 
+    <nav class="bg-gray-800 text-white p-4">
+        <ul class="flex justify-center space-x-6">
+            <li><a href="{{ url_for('home') }}" class="hover:text-green-400 transition duration-300">Home</a></li>
+            <li><a href="{{ url_for('developers') }}" class="hover:text-green-400 transition duration-300">Developers</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 sm:p-8">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-semibold text-center text-white mb-8">
+            <div class="header-container flex justify-center items-center space-x-4 py-2 bg-gray-800 rounded-extralarge mx-auto w-full max-w-4xl">
+                <span class="ml-4 text-lg sm:text-xl md:text-2xl">Today's Class:</span>
+                <span class="day-tag text-sm sm:text-lg md:text-xl">{{ today }}</span>
+            </div>
+        </h2>
+        
+
+        <!-- Class Schedule -->
+        {% if schedule %}
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
+            {% for cls in schedule %}
+                <div class="class-item p-4 sm:p-6 bg-white rounded-lg shadow-lg transform transition duration-300 ease-in-out hover:scale-105
+                    {% if cls.status == 'completed' %}bg-green-100 hover:bg-green-200{% elif cls.status == 'ongoing' %}bg-yellow-100 hover:bg-yellow-200{% else %}bg-gray-100 hover:bg-gray-200{% endif %} relative">
+                    
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-baseline space-x-2">
+                            <h3 class="text-xl font-semibold text-gray-900">{{ cls.subject }}</h3>
+                            <div class="text-gray-500 text-base cursor-pointer z-10" onclick="showModal('{{ cls.subject }}', '{{ cls.professor }}', '{{ cls.prof_hours }}', '{{ cls.ta_name }}', '{{ cls.ta_hours }}', '{{ cls.grading_component }}')">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                        </div>
+                        <span class="text-sm text-gray-600">{{ cls.time }}</span>
+                    </div>
+                    
+                    <p class="text-sm text-gray-700 mb-4">Venue: <span class="font-medium">{{ cls.venue }}</span></p>
+
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="text-sm font-semibold text-gray-800">Class Status</span>
+                        <div class="flex items-center space-x-2">
+                            {% if cls.status == 'completed' %}
+                                <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                                <span class="text-sm text-green-500">Completed</span>
+                            {% elif cls.status == 'ongoing' %}
+                                <i class="fas fa-play-circle text-yellow-400 text-xl"></i>
+                                <span class="text-sm text-yellow-400">Ongoing</span>
+                            {% else %}
+                                <i class="fas fa-hourglass-half text-gray-400 text-xl"></i>
+                                <span class="text-sm text-gray-400">Upcoming</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="text-center py-6 px-8 bg-black rounded-lg shadow-xl transform hover:bg-black hover:scale-105 transition-all duration-300 ease-in-out w-full mx-auto">
+            <p class="text-2xl font-semibold text-white mb-4 typing-effect">No classes for today!</p>           
+            <img src="https://c.tenor.com/-buzIaq-QeoAAAAC/tenor.gif" class="w-full max-w-xs mx-auto mb-4 rounded-lg m-0" alt="No classes for today!">
+        </div>        
+        {% endif %}        
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 py-4 mt-8">
+        <div class="text-center container mx-auto px-4">
+            <p class="mt-2">&copy; 2024 Schedule 1.3.0.
+                <a href="{{ url_for('developers') }}" 
+                   class="text-gray-400 hover:text-gray-300 font-medium transition duration-300">
+                   About Developers
+                </a>
+            </p>
+        </div>
+    </footer>
+    
+
+    <!-- Modal for showing class details -->
+    <div id="infoModal" class="modal hidden fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+        <div class="modal-content bg-white rounded-lg shadow-xl p-6 sm:p-8 md:p-10 max-w-full sm:max-w-md md:max-w-lg w-full">
+            <h2 class="text-2xl sm:text-3xl font-semibold text-gray-900 mb-4 sm:mb-6">Class Details</h2>
+
+            <!-- Table for Class Details -->
+            <table class="table-auto w-full text-left border-collapse mb-4">
+                <tbody>
+                    <tr>
+                        <td class="font-semibold text-gray-700 py-2 px-4 border-b">Professor Name</td>
+                        <td class="text-gray-900 py-2 px-4 border-b" id="professorName"></td>
+                    </tr>
+                    <tr>
+                        <td class="font-semibold text-gray-700 py-2 px-4 border-b">Professor Hours</td>
+                        <td class="text-gray-900 py-2 px-4 border-b" id="professorHours"></td>
+                    </tr>
+                    <tr>
+                        <td class="font-semibold text-gray-700 py-2 px-4 border-b">TA Name</td>
+                        <td class="text-gray-900 py-2 px-4 border-b" id="taName"></td>
+                    </tr>
+                    <tr>
+                        <td class="font-semibold text-gray-700 py-2 px-4 border-b">TA Hours</td>
+                        <td class="text-gray-900 py-2 px-4 border-b" id="taHours"></td>
+                    </tr>
+                    <tr>
+                        <td class="font-semibold text-gray-700 py-2 px-4 border-b">Grading Component</td>
+                        <td class="text-gray-900 py-2 px-4 border-b" id="gradingComponent"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <button class="modal-close bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white py-2 px-4 rounded-lg mt-6 sm:mt-8 font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300 w-full sm:w-auto" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+</body>
+</html>
