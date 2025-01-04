@@ -1,7 +1,6 @@
 {
     "Monday": [
         {"time": "8:30 AM - 9:30 AM", "subject": "PNS Tuts", "venue": "TBA", "professor": "Sanjit Kaul", "prof_hours": "TBA", "ta_name": "TBA", "ta_hours": "TBA", "grading_component": "TBA"},
-        {"time": "12:30 PM - 1:00 PM", "subject": "Lunch", "venue": "N/A"},
         {"time": "3:00 PM - 4:30 PM", "subject": "MB Lecture", "venue": "TBA", "professor": "Kiriti Kanjilal", "prof_hours": "TBA", "ta_name": "TBA", "ta_hours": "TBA", "grading_component": "TBA"}
     ],
     "Tuesday": [

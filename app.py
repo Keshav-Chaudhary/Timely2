@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import datetime
 import pytz
 import json
@@ -42,3 +42,14 @@ def home():
 @app.route('/developers')
 def developers():
     return render_template('developers.html')
+
+@app.route('/upcoming', methods=['GET', 'POST'])
+def upcoming_classes():
+    days_of_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    selected_day = request.args.get('day', None)
+    
+    if not selected_day or selected_day not in days_of_week:
+        selected_day = None
+    selected_schedule = schedule.get(selected_day, []) if selected_day else []
+
+    return render_template('upcoming.html', schedule=selected_schedule, day=selected_day, days_of_week=days_of_week)
