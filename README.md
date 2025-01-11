@@ -27,9 +27,9 @@ Class Scheduler is a web-based application designed to help me organize my daily
 ## Access the Application
 
 Check out the project live:
-[Class Scheduler 1.2.0](https://timely-7ag8iv3sz-keshav-chaudharys-projects.vercel.app/)
-[Class Scheduler 1.3.0](https://timely-gfembd85y-keshav-chaudharys-projects.vercel.app/)
-[Class Scheduler 1.4.0](https://timely-by-kc.vercel.app/)
+[Class Scheduler 1.3.0](https://timely-7ag8iv3sz-keshav-chaudharys-projects.vercel.app/)
+[Class Scheduler 1.3.1](https://timely-gfembd85y-keshav-chaudharys-projects.vercel.app/)
+[Class Scheduler 1.3.2](https://timely-by-kc.vercel.app/)
 
 
 ## Usage
