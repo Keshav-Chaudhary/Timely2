@@ -153,3 +153,31 @@ html {
 .animate-flame {
     animation: flame 1.5s infinite alternate;
 }
+
+/* Hamburger Menu */
+#hamburger-icon.rotate-180 {
+    transform: rotate(180deg);
+}
+/* Status Filter */
+#statusFilter {
+    transition: background-color 0.3s ease-in-out;
+}
+#statusFilter:focus {
+    background-color: #4c4c4c;
+}
+#statusFilter:hover {
+    background-color: #6b6b6b;
+}
+/* Suggestion Box */
+#suggestions {
+    min-width: 100%;
+}
+
+#day-input:focus + button + #suggestions,
+#suggestions {
+    border: 2px solid #22c55e;
+    border-top: none; 
+}
+#suggestions {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
