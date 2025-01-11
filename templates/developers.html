@@ -5,13 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About the Developers</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}" sizes="16x16" type="image/png">
     <link rel="icon" href="{{ url_for('static', filename='images/logo-32x32.png') }}" sizes="32x32" type="image/png">
-    <link rel="icon" href="{{ url_for('static', filename='images/logo-48x48.png') }}" sizes="48x48" type="image/png"></head>
+    <link rel="icon" href="{{ url_for('static', filename='images/logo-48x48.png') }}" sizes="48x48" type="image/png">
 </head>
 <body class="bg-gray-900 text-gray-100">
     <!-- Header -->
@@ -22,25 +19,11 @@
     </header>
 
     <!-- Navigation Bar -->
-    <nav class="bg-gray-800 text-white shadow-lg">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <h2 class="text-2xl font-bold tracking-wide">Menu</h2>
-            <!-- Hamburger Icon for mobile -->
-            <button class="sm:hidden text-white focus:outline-none relative" onclick="toggleMenu()">
-                <i id="hamburger-icon" class="fas fa-bars text-2xl transition-transform duration-300"></i>
-            </button>
-            <!-- Desktop Menu -->
-            <ul class="hidden sm:flex space-x-8 text-lg">
-                <li><a href="{{ url_for('home') }}" class="hover:text-green-400 transition-colors duration-300 ease-in-out">Home</a></li>
-                <li><a href="{{ url_for('upcoming_classes') }}" class="hover:text-green-400 transition-colors duration-300 ease-in-out">Upcoming Classes</a></li>
-                <li><a href="{{ url_for('developers') }}" class="hover:text-green-400 transition-colors duration-300 ease-in-out">Developers</a></li>
-            </ul>
-        </div>
-        <!-- Mobile Menu -->
-        <ul id="mobile-menu" class="hidden sm:hidden bg-gray-800 text-white p-6 space-y-4">
-            <li><a href="{{ url_for('home') }}" class="block hover:text-green-400 transition-colors duration-300 ease-in-out">Home</a></li>
-            <li><a href="{{ url_for('upcoming_classes') }}" class="block hover:text-green-400 transition-colors duration-300 ease-in-out">Upcoming Classes</a></li>
-            <li><a href="{{ url_for('developers') }}" class="block hover:text-green-400 transition-colors duration-300 ease-in-out">Developers</a></li>
+    <nav class="bg-gray-800 text-white p-4">
+        <ul class="flex justify-center space-x-6">
+            <li><a href="{{ url_for('home') }}" class="hover:text-green-400 transition duration-300">Home</a></li>
+            <li><a href="{{ url_for('upcoming_classes') }}" class="hover:text-green-400">Upcoming Classes</a></li>
+            <li><a href="{{ url_for('developers') }}" class="hover:text-green-400 transition duration-300">Developers</a></li>
         </ul>
     </nav>
 
@@ -59,7 +42,7 @@
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2">Keshav Chaudhary</h3>
                     <p class="text-sm text-gray-400 mb-4">BTech in CSAM at IIIT Delhi. Skilled in Python, C++, Flask, and more.</p>
-                    <a href="https://github.com/Keshav-Chaudhary" 
+                    <a href="https://github.com/tobecontinued" 
                        target="_blank" 
                        class="text-green-400 hover:text-green-500 font-medium transition duration-300">
                        View GitHub Profile
@@ -73,7 +56,7 @@
                          class="w-20 h-20 mx-auto rounded-full mb-4 border-2 border-green-400">
                     <h3 class="text-xl font-bold text-white mb-2">Chandra Mohan</h3>
                     <p class="text-sm text-gray-400 mb-4">BTech in CSD at IIIT Delhi. Skilled in Frontend Development.</p>
-                    <a href="https://github.com/Chandra23175" 
+                    <a href="https://github.com/tobecontinued" 
                        target="_blank" 
                        class="text-green-400 hover:text-green-500 font-medium transition duration-300">
                        View GitHub Profile
