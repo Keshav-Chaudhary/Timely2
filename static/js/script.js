@@ -80,3 +80,19 @@ document.addEventListener('click', (e) => {
         suggestionsBox.classList.add('hidden');
     }
 });
+
+//new
+// Add event listener to the input field of Preview Tommorow Classes
+document.addEventListener("DOMContentLoaded", function() {
+    const previewBtn = document.getElementById("preview-btn");
+    const classSchedule = document.getElementById("class-schedule");
+
+    previewBtn.addEventListener("click", function() {
+        classSchedule.classList.toggle("hidden");
+        if (classSchedule.classList.contains("hidden")) {
+            previewBtn.textContent = "Preview";
+        } else {
+            previewBtn.textContent = "Hide";
+        }
+    });
+});
