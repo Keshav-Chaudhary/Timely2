@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template , request
 import datetime
 import pytz
 import json
@@ -34,11 +34,21 @@ def get_classes_for_today():
             cls["status"] = "completed"
 
     return current_day, today_schedule
+# New
+def get_classes_for_tomorrow():
+    tz = pytz.timezone('Asia/Kolkata')
+    now = datetime.datetime.now(tz)
+    tomorrow = now + datetime.timedelta(days=1)
+    tomorrow_day = tomorrow.strftime('%A')
+    tomorrow_schedule = schedule.get(tomorrow_day, [])
+
+    return tomorrow_day, tomorrow_schedule
 
 @app.route('/')
 def home():
     today, today_schedule = get_classes_for_today()
-    return render_template('schedule.html', schedule=today_schedule, today=today)
+    tommorrow, tomorrow_schedule = get_classes_for_tomorrow() # Get classes for tomorrow New
+    return render_template('schedule.html', schedule=today_schedule, today=today, tomorrow=tommorrow, tomorrow_schedule=tomorrow_schedule)#new 
 @app.route('/developers')
 def developers():
     return render_template('developers.html')
