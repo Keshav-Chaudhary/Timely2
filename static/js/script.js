@@ -81,8 +81,7 @@ document.addEventListener('click', (e) => {
     }
 });
 
-//new
-// Add event listener to the input field of Preview Tommorow Classes
+// Added event listener to Preview Tommorow Classes
 document.addEventListener("DOMContentLoaded", function() {
     const previewBtn = document.getElementById("preview-btn");
     const classSchedule = document.getElementById("class-schedule");
@@ -95,4 +94,145 @@ document.addEventListener("DOMContentLoaded", function() {
             previewBtn.textContent = "Hide";
         }
     });
+});
+
+//new
+//qr scanner
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("Script loaded and DOM is ready.");
+    const video = document.getElementById("qr-video");
+    const resultDiv = document.getElementById("result");
+    const startScanBtn = document.getElementById("start-scan");
+    const stopScanBtn = document.getElementById("stop-scan");
+    const copyResultBtn = document.getElementById("copy-result");
+    const clearResultBtn = document.getElementById("clear-result");
+    const loadingDiv = document.getElementById("loading");
+    let scanning = false;
+    
+    const startScan = async () => {
+        try {
+            console.log("Attempting to access camera...");
+            loadingDiv.classList.remove("hidden");
+    
+            if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                throw new Error("Camera access is not supported in this browser.");
+            }
+    
+            const stream = await navigator.mediaDevices.getUserMedia({ 
+                video: { facingMode: "environment" }
+            });
+    
+            console.log("Camera access granted.");
+            loadingDiv.classList.add("hidden");
+    
+            video.srcObject = stream;
+            video.setAttribute("playsinline", true); 
+            video.play();
+    
+            startScanBtn.classList.add("hidden");
+            stopScanBtn.classList.remove("hidden");
+    
+            scanning = true;
+            requestAnimationFrame(scan);
+        } catch (err) {
+            console.error("Error accessing camera: ", err);
+            resultDiv.innerText = "Error accessing camera. Please ensure camera permissions are granted.";
+            loadingDiv.classList.add("hidden");
+        }
+    };
+    const scan = () => {
+        if (!scanning) return;
+    
+        if (video.readyState === video.HAVE_ENOUGH_DATA) {
+            const canvas = document.createElement("canvas");
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            const context = canvas.getContext("2d");
+    
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+    
+            const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+    
+            const code = jsQR(imageData.data, imageData.width, imageData.height, {
+                inversionAttempts: "dontInvert",
+            });
+    
+            if (code) {
+                console.log("QR Code detected:", code.data);
+                displayResult(code.data);
+                stopScan();
+            } else {
+                requestAnimationFrame(scan);
+            }
+        } else {
+            requestAnimationFrame(scan);
+        }
+    };
+    
+    const stopScan = () => {
+        scanning = false;
+        if (video.srcObject) {
+            video.srcObject.getTracks().forEach(track => track.stop());
+        }
+        startScanBtn.classList.remove("hidden");
+        stopScanBtn.classList.add("hidden");
+    };
+    
+    const displayResult = (result) => {
+        resultDiv.innerHTML = `
+            <a href="${result}" class="text-blue-400 hover:text-blue-300 transition-colors duration-300 flex items-center justify-center" target="_blank">
+                <i class="fas fa-link mr-2"></i> Click Here
+            </a>
+        `;
+        copyResultBtn.classList.remove("hidden");
+        clearResultBtn.classList.remove("hidden");
+    };
+    
+    copyResultBtn.addEventListener("click", () => {
+        const resultText = resultDiv.querySelector("a").href;
+        navigator.clipboard.writeText(resultText).then(() => {
+            alert("Result copied to clipboard!");
+        }).catch(err => {
+            console.error("Error copying to clipboard: ", err);
+        });
+    });
+    
+    clearResultBtn.addEventListener("click", () => {
+        resultDiv.innerText = "";
+        copyResultBtn.classList.add("hidden");
+        clearResultBtn.classList.add("hidden");
+    });
+    
+    document.getElementById('qr-image-input').addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                const img = new Image();
+                img.onload = () => {
+                    const canvas = document.createElement("canvas");
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    const context = canvas.getContext("2d");
+                    context.drawImage(img, 0, 0, canvas.width, canvas.height);
+    
+                    const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+                    const code = jsQR(imageData.data, imageData.width, imageData.height, {
+                        inversionAttempts: "dontInvert",
+                    });
+    
+                    if (code) {
+                        console.log("QR Code detected in image:", code.data);
+                        displayResult(code.data);
+                    } else {
+                        resultDiv.innerText = "No QR code found in the image.";
+                    }
+                };
+                img.src = event.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+    startScanBtn.addEventListener("click", startScan);
+    stopScanBtn.addEventListener("click", stopScan);    
 });
