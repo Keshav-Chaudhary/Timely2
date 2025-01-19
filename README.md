@@ -30,7 +30,8 @@ Check out the project live:
 [Class Scheduler 1.3.0](https://timely-7ag8iv3sz-keshav-chaudharys-projects.vercel.app/) ,
 [Class Scheduler 1.3.1](https://timely-gfembd85y-keshav-chaudharys-projects.vercel.app/) ,
 [Class Scheduler 1.3.2](https://timely-47wlnegwx-keshav-chaudharys-projects.vercel.app/) ,
-**Current** : [Class Scheduler 1.3.3](https://timely-by-k-c.vercel.app/)
+[Class Scheduler 1.3.3.1](https://timely-ho0045zix-keshav-chaudharys-projects.vercel.app/),
+**Current** : [Class Scheduler 1.3.3.2](https://timely-by-k-ch.vercel.app/)
 
 
 ## Usage
