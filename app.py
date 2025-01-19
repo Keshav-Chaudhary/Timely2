@@ -63,3 +63,7 @@ def upcoming_classes():
     selected_schedule = schedule.get(selected_day, []) if selected_day else []
 
     return render_template('upcoming.html', schedule=selected_schedule, day=selected_day, days_of_week=days_of_week)
+
+@app.route('/scanner')
+def scanner():
+    return render_template('qr_scanner.html')
