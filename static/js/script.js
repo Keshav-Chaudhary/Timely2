@@ -82,13 +82,7 @@ document.addEventListener('click', (e) => {
     }
 });
 
-<<<<<<< HEAD
-
-//new
-// Add event listener to the input field of Preview Tommorow Classes
-=======
 // Added event listener to Preview Tommorow Classes
->>>>>>> e6fbc796f56de162d28ffdbc88540be9078e5557
 document.addEventListener("DOMContentLoaded", function() {
     const previewBtn = document.getElementById("preview-btn");
     const classSchedule = document.getElementById("class-schedule");
@@ -101,8 +95,4 @@ document.addEventListener("DOMContentLoaded", function() {
             previewBtn.textContent = "Hide";
         }
     });
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> e6fbc796f56de162d28ffdbc88540be9078e5557
