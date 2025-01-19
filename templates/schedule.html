@@ -146,45 +146,46 @@
         <!--New-->
         <!--Tomorrow Schedule-->
         {% if tomorrow_schedule %}
-        <h2 class="container mx-auto p-4 sm:p-8 text-3xl sm:text-4xl md:text-5xl font-semibold text-center text-white">
-            <div class="header-container flex justify-center items-center space-x-4 py-2 bg-gray-800 rounded-extra-lg mx-auto w-full max-w-4xl">
-                <span class="ml-4 text-lg sm:text-xl md:text-2xl">Tomorrow's Class:</span>
-                <span class="day-tag text-sm sm:text-xl md:text-xl">{{ tomorrow }}</span>
-            </div>
-            <button id="preview-btn" class="border border-gray-800 py-2 px-4 rounded-3xl mt-4 text-sm sm:text-small md:text-small">
-                Preview
-            </button>
-        </h2>
+            <h2 class="container mx-auto p-4 sm:p-8 text-3xl sm:text-4xl md:text-5xl font-semibold text-center text-white">
+                <div class="header-container flex justify-center items-center space-x-4 py-2 bg-gray-800 rounded-extra-lg mx-auto w-full max-w-4xl">
+                    <span class="ml-4 text-lg sm:text-xl md:text-2xl">Tomorrow's Class:</span>
+                    <span class="day-tag text-sm sm:text-xl md:text-xl">{{ tomorrow }}</span>
+                </div>
+                <button id="preview-btn" class="border border-gray-800 py-2 px-4 rounded-3xl mt-4 text-sm sm:text-small md:text-small">
+                    Preview
+                </button>
+            </h2>
+
+            <!-- Class Schedule (Initially Hidden) -->
+            <div id="class-schedule" class="container mx-auto px-4 mt-1 hidden">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+                    {% for cls in tomorrow_schedule %}
+                        <div class="class-item p-3 sm:p-4 bg-white rounded-lg shadow-md transform transition duration-300 ease-in-out hover:bg-yellow-100 hover:shadow-lg hover:scale-105">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="text-lg font-semibold text-gray-900">{{ cls.subject }}</h3>
+                                <span class="text-sm text-gray-600">{{ cls.time }}</span>
+                            </div>
         
-    
-        <!-- Class Schedule (Initially Hidden) -->
-        <div id="class-schedule" class="container mx-auto px-4 mt-1 hidden">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-                {% for cls in tomorrow_schedule %}
-                    <div class="class-item p-3 sm:p-4 bg-white rounded-lg shadow-md transform transition duration-300 ease-in-out hover:bg-yellow-100 hover:shadow-lg hover:scale-105">
-                        <div class="flex items-center justify-between mb-2">
-                            <h3 class="text-lg font-semibold text-gray-900">{{ cls.subject }}</h3>
-                            <span class="text-sm text-gray-600">{{ cls.time }}</span>
-                        </div>
-    
-                        <div class="flex items-center justify-between">
-                            <div class="text-sm text-gray-700">Venue: <span class="font-medium">{{ cls.venue }}</span></div>
-                            <div class="text-gray-500 text-base cursor-pointer" onclick="showModal('{{ cls.subject }}', '{{ cls.professor }}', '{{ cls.prof_hours }}', '{{ cls.ta_name }}', '{{ cls.ta_hours }}', '{{ cls.grading_component }}')">
-                                <i class="fas fa-info-circle"></i>
+                            <div class="flex items-center justify-between">
+                                <div class="text-sm text-gray-700">Venue: <span class="font-medium">{{ cls.venue }}</span></div>
+                                <div class="text-gray-500 text-base cursor-pointer" onclick="showModal('{{ cls.subject }}', '{{ cls.professor }}', '{{ cls.prof_hours }}', '{{ cls.ta_name }}', '{{ cls.ta_hours }}', '{{ cls.grading_component }}')">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
+                </div>
             </div>
-        </div>
-    
-    {% else %}
-        <div class="text-center py-6 px-8 bg-black rounded-lg shadow-xl transform hover:bg-black hover:scale-105 transition-all duration-300 ease-in-out w-full mx-auto">
-            <p class="text-2xl font-semibold text-white mb-4">No classes for tomorrow!</p>
-            <img src="https://c.tenor.com/-buzIaq-QeoAAAAC/tenor.gif" class="w-full max-w-xs mx-auto mb-4 rounded-lg m-0" alt="No classes for tomorrow!">
-        </div>
-    {% endif %}
-
+        {% else %}
+            <div class="header-container flex justify-center items-center space-x-4 py-2 bg-gray-800 rounded-extra-lg mx-auto w-full max-w-4xl my-4">
+                <span class="ml-4 text-lg font-semibold sm:text-xl md:text-2xl">Tomorrow's Class:</span>
+                <span class="day-tag text-sm sm:text-xl md:text-xl">{{ tomorrow }}</span>
+            </div>
+            <div class="text-center py-6 px-8 bg-black rounded-lg shadow-xl transform hover:bg-black hover:scale-105 transition-all duration-300 ease-in-out w-full mx-auto">
+                <p class="text-2xl font-semibold text-white mb-4">No classes for tomorrow!</p>
+                <img src="https://c.tenor.com/-buzIaq-QeoAAAAC/tenor.gif" class="w-full max-w-xs mx-auto mb-4 rounded-lg m-0" alt="No classes for tomorrow!">
+            </div>
+        {% endif %}
     </main>
 
     <!-- Footer -->
