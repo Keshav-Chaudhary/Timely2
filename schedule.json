@@ -23,7 +23,7 @@
     ],
     "Friday": [
         {"time": "8:30 AM - 9:30 AM", "subject": "BE Tut", "venue": "TBA", "professor": "Chanekar Prasad Vilas", "prof_hours": "TBA", "ta_name": "TBA", "ta_hours": "TBA", "grading_component": "TBA"},
-        {"time": "9:30 AM - 11:00 AM", "subject": "DSA Lecture", "venue": "C201", "professor": "Gautam Shroff", "prof_hours": "TBA", "ta_name": "TBA", "ta_hours": "TBA", "grading_component": "TBA"},
+        {"time": "11:00 AM - 12:30 PM", "subject": "DSA Lecture", "venue": "C201", "professor": "Gautam Shroff", "prof_hours": "TBA", "ta_name": "TBA", "ta_hours": "TBA", "grading_component": "TBA"},
         {"time": "4:00 PM - 6:00 PM", "subject": "DSA Lab", "venue": "C102-1st Block", "professor": "Gautam Shroff", "prof_hours": "TBA", "ta_name": "TBA", "ta_hours": "TBA", "grading_component": "TBA"}
     ] 
 }
