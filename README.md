@@ -1,6 +1,6 @@
 # Timely2
-![Class Schedule](https://github.com/user-attachments/assets/2625caf7-232a-4b50-96b4-6844acf2011d)
 # Class Scheduler
+<img width="1890" height="864" alt="image" src="https://github.com/user-attachments/assets/22a0c0c2-adb7-4a7c-b1ba-b4b6a496afea" />
 
 Class Scheduler is a web-based application designed to help me organize my daily class schedule with ease. The app provides a responsive and user-friendly interface, allowing me to view, track, and manage my class timings, venues, and statuses.
 
@@ -31,7 +31,7 @@ Check out the project live:
 [Class Scheduler 1.3.1](https://timely-gfembd85y-keshav-chaudharys-projects.vercel.app/) ,
 [Class Scheduler 1.3.2](https://timely-47wlnegwx-keshav-chaudharys-projects.vercel.app/) ,
 [Class Scheduler 1.3.3.1](https://timely-ho0045zix-keshav-chaudharys-projects.vercel.app/),
-**Current** : [Class Scheduler 1.3.3.2](https://timely-by-k-ch.vercel.app/)
+**Current** : [Class Scheduler 1.3.3.2](https://timely2.vercel.app/)
 
 
 ## Usage
